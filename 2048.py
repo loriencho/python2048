@@ -27,6 +27,7 @@ def create_initial_board():
     return board
 
 # Students will be using
+# ONLY PUSHES IN THE DESIRED DIRECTION ONCE
 def push(direction, board):  
     if(direction == "left"):
         for row_index in range(0, 4, 1):
@@ -47,6 +48,37 @@ def push(direction, board):
     else: 
         print("Invalid Direction")               
     return board
+
+# LOCHO READ THIS
+# # Students will be using
+# def push(direction, board): 
+#     # error check for if direction is not valid
+#     return push(direction, board, create_initial_board())
+
+# # Internal (recursive) function
+# def push(direction, current_board, past_board):
+#     if(current_board == last_board): # push in that direction until we can't anymore
+#         return current
+#     else:
+#         if(direction == "left"):
+#             for row_index in range(0, 4, 1):
+#                 for col_index in range(0, 3, 1):
+#                     # store old board in a new variable called old_board here
+#                     combineTiles(board, (row_index, col_index), (row_index, col_index + 1))
+#                     # push(direction, old_board, board)
+#         elif(direction == "right"):
+#             for row_index in range(0, 4, 1):
+#                 for col_index in range(3, 0, -1):
+#                     combineTiles(board, (row_index, col_index), (row_index, col_index - 1))
+#         elif (direction=="up"):
+#             for row_index in range(1, 4, 1):
+#                 for col_index in range(0, 4, 1):
+#                     combineTiles(board, (row_index - 1, col_index), (row_index, col_index))
+#         elif (direction=="down"):
+#             for row_index in range(2, 0, -1):
+#                 for col_index in range(0, 4, 1):
+#                     combineTiles(board, (row_index + 1, col_index), (row_index, col_index))               
+#     return board
 
 # INTERNAL FUNCTION
 def combineTiles(board, current_tile, pushed_tile):
