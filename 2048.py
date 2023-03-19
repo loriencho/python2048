@@ -2,7 +2,7 @@ import random
 # Students will be using
 def display_board(board):
     for row in board:
-        print(row)
+        print(row) 
     print()
 
 # Students will be using
@@ -26,11 +26,10 @@ def create_initial_board():
     return board
 
 # Students will be using
-# ONLY PUSHES IN THE DESIRED DIRECTION ONCE
 def push(direction, board):  
     return push_recurse(direction, board, create_initial_board())
 
-# # Internal (recursive) function
+# INTERNAL FUNCTION (RECURSIVE)
 def push_recurse(direction, current_board, past_board):
     if(current_board == past_board): # push in that direction until we can't anymore
         return current_board
@@ -78,10 +77,20 @@ def return_empty_tiles(board):
                 empty_tiles.append((row_index, column_index))      
     return empty_tiles
 
-board = [[0, 0, 0, 0],[0, 0, 0, 0],[2, 2, 2, 2], [0, 0, 0, 0]]
-display_board(board)
-push("down", board)
-display_board(board)
-push("left", board)
-display_board(board)
+print("Let's play 2048")
+board = create_initial_board()
+insert_random_tile(board)
+while(insert_random_tile(board) != False):
+    print()
+    display_board(board)
+    move = input("Use w,a,s,d to pick a direction to move")
+    if(move == "w"):
+        push("up", board)
+    elif(move == "a"):
+        push("left", board)
+    elif(move == "s"):
+        push("down", board)
+    elif(move == "d"):
+        push("right", board)
 
+print("game over")
