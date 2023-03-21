@@ -1,7 +1,7 @@
 import copy
 import random 
 
-# Students will write
+# Students will write & use
 def create_initial_board():
     """
         Creates an empty board of 4 rows, 4 columns with all empty tiles
@@ -19,7 +19,7 @@ def create_initial_board():
 
     return board
 
-# Students will write
+# Students will write & use
 def return_empty_tiles(board):
     """
         Searches the board for empty tiles and returns a list
@@ -35,7 +35,7 @@ def return_empty_tiles(board):
                 
     return empty_tiles
 
-# Prewritten function
+# Students will use
 def insert_random_tile(board):
     """
         Randomly picks an empty tile on the board to insert 2 into.
@@ -58,7 +58,7 @@ def insert_random_tile(board):
         # No more empty tiles
         return False
     
-# Prewritten function
+#  Students will use
 def display_board(board):
     """
         Prints the board with improved readbility.
@@ -73,7 +73,7 @@ def display_board(board):
     print()
 
 
-# Prewritten function
+ # Students will use
 def push(direction, board):  
     """
         Given a direction, the tiles on the board will first compress 
@@ -87,7 +87,7 @@ def push(direction, board):
     return push_recurse(direction, board, create_initial_board(), "compress")
 
 
-# Prewritten function
+# Internal function
 def push_recurse(direction, current_board, past_board, mode):
     """
         Recursively goes through the board in order to compress or merge tiles, 
@@ -133,7 +133,7 @@ def push_recurse(direction, current_board, past_board, mode):
 
     return board
 
-# Prewritten function
+# Internal function
 def combine_tiles(board, current_tile, pushed_tile, mode):
     global high_score
     current_tile_value = board[current_tile[0]][current_tile[1]]
