@@ -35,7 +35,7 @@ def return_empty_tiles(board):
                 
     return empty_tiles
 
-# Students will be using
+# Prewritten function
 def insert_random_tile(board):
     """
         Randomly picks an empty tile on the board to insert 2 into.
@@ -135,20 +135,23 @@ def push_recurse(direction, current_board, past_board, mode):
 
 # Prewritten function
 def combine_tiles(board, current_tile, pushed_tile, mode):
+    global high_score
     current_tile_value = board[current_tile[0]][current_tile[1]]
     pushed_tile_value = board[pushed_tile[0]][pushed_tile[1]]
 
-    if mode == "merge":
-        if (current_tile_value == pushed_tile_value 
-            and current_tile_value!=0):
+    if mode == "merge": # values slide across empty tiles
+        if (current_tile_value == pushed_tile_value and current_tile_value!=0):
             board[current_tile[0]][current_tile[1]] = current_tile_value * 2
             board[pushed_tile[0]][pushed_tile[1]] = 0
-
+            
+            # update the high score variable accordingly
             if (current_tile_value * 2 > high_score):
                 high_score = current_tile_value *2 
-    if mode == "compress":  
+    if mode == "compress":  # any matching pairs are "added together"
         if (current_tile_value == 0 and pushed_tile_value!=0):
-            board[current_tile[0]][current_tile[1]] = pushed_tile_value
+            # the current tile takes on double it's value
+            board[current_tile[0]][current_tile[1]] = pushed_tile_value 
+            # the tile that was just "pushed" becomes empty
             board[pushed_tile[0]][pushed_tile[1]] = 0
     
 
